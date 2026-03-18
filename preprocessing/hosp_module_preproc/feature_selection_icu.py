@@ -39,7 +39,7 @@ def feature_icu(cohort_output, version_path, diag_flag=True,out_flag=True,chart_
     if out_flag:  
         print("[EXTRACTING OUPTPUT EVENTS DATA]")
         out = preproc_out("./"+version_path+"/icu/outputevents.csv.gz", './data/cohort/'+cohort_output+'.csv.gz', 'charttime', dtypes=None, usecols=None)
-        out[['subject_id', 'hadm_id', 'stay_id', 'itemid', 'charttime', 'intime', 'event_time_from_admit']].to_csv("./data/features/preproc_out_icu.csv.gz", compression='gzip', index=False)
+        out[['subject_id', 'hadm_id', 'stay_id', 'itemid', 'charttime', 'intime', 'event_time_from_admit', 'value']].to_csv("./data/features/preproc_out_icu.csv.gz", compression='gzip', index=False)
         print("[SUCCESSFULLY SAVED OUPTPUT EVENTS DATA]")
     
     if chart_flag:

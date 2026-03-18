@@ -257,7 +257,7 @@ def extract_data(use_ICU:str, label:str, time:int, icd_code:str, root_dir, disea
     summary_output: name of summary output file
     use_ICU: state whether to use ICU patient data or not
     label: Can either be '{day} day Readmission' or 'Mortality', decides what binary data label signifies"""
-    print("===========MIMIC-IV v3.0============")
+    print("===========MIMIC-IV v3.1============")
     if not cohort_output:
         cohort_output="cohort_" + use_ICU.lower() + "_" + label.lower().replace(" ", "_") + "_" + str(time) + "_" + disease_label
     if not summary_output:
@@ -307,7 +307,7 @@ def extract_data(use_ICU:str, label:str, time:int, icd_code:str, root_dir, disea
         death_col='dod'
 
     pts = get_visit_pts(
-        mimic4_path=root_dir+"/mimiciv/3.0/",
+        mimic4_path=root_dir+"/mimiciv/3.1/",
         group_col=group_col,
         visit_col=visit_col,
         admit_col=admit_col,
@@ -340,7 +340,7 @@ def extract_data(use_ICU:str, label:str, time:int, icd_code:str, root_dir, disea
     #print(cohort.head())
     
     if use_disease:
-        hids=disease_cohort.extract_diag_cohort(cohort['hadm_id'],icd_code,root_dir+"/mimiciv/3.0/")
+        hids=disease_cohort.extract_diag_cohort(cohort['hadm_id'],icd_code,root_dir+"/mimiciv/3.1/")
         #print(hids.shape)
         #print(cohort.shape)
         #print(len(list(set(hids['hadm_id'].unique()).intersection(set(cohort['hadm_id'].unique())))))
